@@ -11,8 +11,13 @@ export class SearchBar extends Component {
     this.setState({ searchTerm: e.target.value });
   }
 
- handleSubmit = () => {
+ handleSubmit = (e) => {
     const { searchTerm } = this.state;
+    const { onFormSubmit } = this.props;
+
+    onFormSubmit(searchTerm);
+
+    e.preventDefault();
   }
 
   render() {
